@@ -15,9 +15,13 @@ public class NotEmptyValidator extends AbstractValidator {
     }
 
     public NotEmptyValidator(Context c, int errorMessage) {
-        super(c, DEFAULT_ERROR_MESSAGE_RESOURCE);
+        super(c, errorMessage);
     }
 
+    public NotEmptyValidator(Context c, String errorMessageString){
+    	super(c, errorMessageString);
+    }
+    
     @Override
     public boolean isValid(String text) {
         return !TextUtils.isEmpty(text);

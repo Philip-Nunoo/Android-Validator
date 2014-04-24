@@ -10,13 +10,17 @@ import android.content.Context;
 public abstract class AbstractValidator {
 
     private Context mContext;
-    private int mErrorMessageRes;
+    private String mErrorMessageString;
 
     public AbstractValidator(Context c, int errorMessageRes) {
         mContext = c;
-        mErrorMessageRes = errorMessageRes;
+        mErrorMessageString = mContext.getString(errorMessageRes);
     }
 
+    public AbstractValidator(Context c, String errorMessageString){
+    	mContext = c;
+    	mErrorMessageString = errorMessageString;
+    }
     /**
      * Can check if the value passed in parameter is valid or not.
      *
@@ -31,6 +35,6 @@ public abstract class AbstractValidator {
      * @return String : the error message
      */
     public String getMessage() {
-        return mContext.getString(mErrorMessageRes);
+        return mErrorMessageString;
     }
 }
